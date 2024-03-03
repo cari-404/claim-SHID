@@ -74,7 +74,7 @@ async fn some_function(start: &str, end: &str, cookie_content: &str, selected_fi
 
 	let body_json = json!({
 	  "voucher_promotionid": start as i64,
-	  "signature": end.replace("\r\n", ""),
+	  "signature": end.replace(char::is_whitespace, ""),
 	  "security_device_fingerprint": sz_token_content,
 	  "signature_source": "0"
 	});
